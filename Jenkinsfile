@@ -6,6 +6,6 @@ node{
   }
 	
   stage('Maven Build'){
-		sh 'mvn clean package'
+		sh 'mvn package'
   }
 }
