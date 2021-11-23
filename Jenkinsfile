@@ -1,15 +1,11 @@
 node{
- stage('GIT Checkout') {
-        steps {
+  stage('GIT Checkout') {
             git branch: 'master',
                 credentialsId: 'Jenkins_Github',
                 url: 'git@github.com:hpevear/jenkins.git'
-
-            sh "ls -lat"
-        }
-    }
+  }
 	
-	stage('Maven Build'){
+  stage('Maven Build'){
 		sh 'mvn clean package'
-	}
+  }
 }
