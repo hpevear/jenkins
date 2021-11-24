@@ -11,7 +11,7 @@ node{
   }
 	
   stage('Copy Artifact'){
-    fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', renameFiles: false, sourceCaptureExpression: '', targetLocation: '/home/jenkinsapp/', targetNameExpression: '')])
+    fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', renameFiles: false, sourceCaptureExpression: '', targetLocation: '/home/jenkinsapp/target', targetNameExpression: '')])
   }
 	
   stage('Stop_Start Service'){
