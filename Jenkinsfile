@@ -7,7 +7,7 @@ node{
 	
   stage('Maven Build'){
     def mvnHome = tool name: 'Maven-3.8.4', type: 'maven'
-    sh "${mvnHome}/bin/mvn package"
+    sh "${mvnHome}/bin/mvn package -DskipTests"
   }
 	
   stage('Copy Artifact'){
