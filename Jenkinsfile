@@ -10,12 +10,7 @@ node{
     sh "${mvnHome}/bin/mvn package -DskipTests"
   }
 	
-  stage('Copy Artifact'){
-    fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', renameFiles: false, sourceCaptureExpression: '', targetLocation: '/home/jenkinsapp/target', targetNameExpression: '')])
-  }
-	
   stage('Stop_Start Service'){
-    sh 'sudo systemctl stop MyJenkins'
-    sh 'sudo systemctl start MyJenkins'
+    sh 'sudo /home/jenkinsapp/scripts/fileOperations.sh'
   }
 }
