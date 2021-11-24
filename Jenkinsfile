@@ -9,4 +9,13 @@ node{
     def mvnHome = tool name: 'Maven-3.8.4', type: 'maven'
     sh "${mvnHome}/bin/mvn package"
   }
+	
+  stage('Copy Artifact'){
+    fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', renameFiles: false, sourceCaptureExpression: '', targetLocation: '/home/jenkinsapp/', targetNameExpression: '')])
+  }
+	
+  stage('Stop_Start Service'){
+    sh 'sudo systemctl stop MyJenkins'
+    sh 'sudo systemctl start MyJenkins'
+  }
 }
