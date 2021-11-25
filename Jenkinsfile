@@ -1,6 +1,6 @@
 node{
   stage('GIT Checkout') {
-    git branch: 'master',
+	  git branch: '${branch}',
         credentialsId: 'Jenkins_Github',
         url: 'git@github.com:hpevear/jenkins.git'
   }
@@ -11,6 +11,6 @@ node{
   }
 	
   stage('Copy Jar Stop_Start Service'){
-    sh 'sudo /home/ec2-user/scripts/myjenkins.sh'
+	  sh 'sudo /home/ec2-user/scripts/myjenkins.sh ${JOB_NAME} ${service}'
   }
 }
