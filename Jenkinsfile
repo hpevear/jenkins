@@ -11,6 +11,6 @@ node{
   }
 	
   stage('Copy Jar Stop_Start Service'){
-	  sh 'sudo /home/ec2-user/scripts/myjenkins.sh ${WORKSPACE} MyJenkins'
+	  sh 'sudo /home/cviapp/scripts/myjenkins.sh ${WORKSPACE} MyJenkins'
   }
 }
