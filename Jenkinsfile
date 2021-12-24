@@ -11,7 +11,7 @@ node{
   }
 	
   stage('Copy Jar to S3'){
-	  dir('${WORKSPACE}'){
+	  dir('Jenkins'){
             pwd(); //Log current directory
             withAWS(region:'us-east-1',credentials:'aws-key') {
                 def identity=awsIdentity();//Log AWS credentials
