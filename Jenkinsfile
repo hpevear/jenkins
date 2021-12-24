@@ -10,7 +10,15 @@ node{
     sh "${mvnHome}/bin/mvn package -DskipTests"
   }
 	
-  stage('Copy Jar Stop_Start Service'){
-	  sh 'sudo /home/cviapp/scripts/myjenkins.sh ${WORKSPACE} MyJenkins'
+  stage('Copy Jar to S3'){
+	  dir('${WORKSPACE}'){
+            pwd(); //Log current directory
+            withAWS(region:'us-east-1',credentials:'aws-key') {
+                def identity=awsIdentity();//Log AWS credentials
+                // Upload files from working directory 'dist' in your project workspace
+                 s3Upload(file:'target/jenkins-0.0.1-SNAPSHOT.jar', bucket:'myjenkins-artifacts-deploy', path:'')
+            }
+        };
   }
+	
 }
