@@ -13,7 +13,7 @@ node{
   stage('Copy Jar to S3'){
 	  dir(''){
             pwd(); //Log current directory
-	    sh ''' cd target '''
+	    sh ''' cd ./target '''
 	    sh ''' tar cvf ../jenkins.tar *.jar '''
 	    sh ''' cd .. '''
             withAWS(region:'us-east-1',credentials:'aws-key') {
