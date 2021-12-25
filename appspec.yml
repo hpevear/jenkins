@@ -3,7 +3,7 @@ version: 0.0
 os: linux
 
 files:
-  - source: /jenkins.jar
+  - source: target/jenkins.jar
     destination: /tmp
 
 hooks:
