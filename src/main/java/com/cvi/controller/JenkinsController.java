@@ -9,7 +9,7 @@ public class JenkinsController {
 	@GetMapping("message")
 	public String getMessage() {
 		
-		return "Hello World! Merry Christmas! :)";
+		return "Merry Christmas to everyone!!";
 	}
 
 }
