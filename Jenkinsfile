@@ -13,7 +13,9 @@ node{
   stage('Copy Jar to S3'){
 	  dir(''){
             pwd(); //Log current directory
-	    sh ''' tar cvf jenkins.tar target/*.jar '''
+	    sh ''' cd target '''
+	    sh ''' tar cvf ../jenkins.tar *.jar '''
+	    sh ''' cd .. '''
             withAWS(region:'us-east-1',credentials:'aws-key') {
                 def identity=awsIdentity();//Log AWS credentials
                 // Upload files from working directory 'dist' in your project workspace
