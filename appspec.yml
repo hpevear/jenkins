@@ -1,5 +1,17 @@
 version: 0.0
+
 os: linux
+
 files:
-  - source: ./jenkins-0.0.1-SNAPSHOT.jar
+  - source: /jenkins.jar
     destination: /tmp
+
+hooks:
+  ApplicationStop:
+    - location: stop-process.sh
+      timeout: 20
+      runas: ec2-user
+  ApplicationStart:
+    - location: start-process.sh
+      timeout: 20
+      runas: ec2-user
