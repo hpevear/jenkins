@@ -17,7 +17,7 @@ node{
             withAWS(region:'us-east-1',credentials:'aws-key') {
                 def identity=awsIdentity();//Log AWS credentials
                 // Upload files from working directory 'dist' in your project workspace
-                 s3Upload(file:'jenkins.tar', bucket:'myjenkins-artifacts-deploy', path:'', metadatas:'application-name:MyJenkins;deploymentgroup-name:MyJenkins')
+                 s3Upload(file:'jenkins.tar', bucket:'myjenkins-artifacts-deploy', path:'')
             }
         };
   }
