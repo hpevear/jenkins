@@ -6,7 +6,6 @@ node{
   }
 	
   stage('Maven Build'){
-    cleanWs()
     def mvnHome = tool name: 'Maven-3.8.4', type: 'maven'
     sh "${mvnHome}/bin/mvn package -DskipTests"
   }
