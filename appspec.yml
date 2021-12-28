@@ -4,14 +4,14 @@ os: linux
 
 files:
   - source: target/jenkins.jar
-    destination: /tmp
+    destination: /home/ec2-user
 
 hooks:
   ApplicationStop:
-    - location: stop-process.sh
+    - location: scripts/stop-process.sh
       timeout: 20
       runas: ec2-user
   ApplicationStart:
-    - location: start-process.sh
+    - location: scripts/start-process.sh
       timeout: 20
       runas: ec2-user
