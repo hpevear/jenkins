@@ -16,8 +16,7 @@ hooks:
     - location: scripts/stop-process.sh
       timeout: 40
       runas: ec2-user
-      
-  ApplicationStart:
+   ApplicationStart:
     - location: scripts/start-process.sh
       timeout: 40
       runas: ec2-user
