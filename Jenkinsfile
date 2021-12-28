@@ -13,11 +13,11 @@ node{
   stage('Copy Jar to S3'){
 	  dir(''){
             pwd(); //Log current directory
-	    sh ''' tar cvf jenkins.tar appspec.yml scripts/*.sh target/*.jar '''
+	    sh ''' zip jenkins.zip appspec.yml scripts/*.sh target/*.jar '''
             withAWS(region:'us-east-1',credentials:'aws-key') {
                 def identity=awsIdentity();//Log AWS credentials
                 // Upload files from working directory 'dist' in your project workspace
-                 s3Upload(file:'jenkins.tar', bucket:'myjenkins-artifacts-deploy', metadatas:['application-name:MyJenkins', 'deploymentgroup-name:MyJenkins'])
+                 s3Upload(file:'jenkins.zip', bucket:'myjenkins-artifacts-deploy', metadatas:['application-name:MyJenkins', 'deploymentgroup-name:MyJenkins'])
             }
         };
   }
